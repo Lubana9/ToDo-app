@@ -6,18 +6,28 @@ import "@styles/style.css";
 import "antd/dist/antd.css";
 import "./style.css";
 
-const ToDoCard = () => {
+type CardToDoProps = {
+  addToDo: (value: string) => void;
+};
+const ToDoCard: React.FC<CardToDoProps> = ({ addToDo }) => {
   const [value, setValue] = useState("");
-
+  const handelSubmit = (e: any) => {
+    e.preventDefault();
+    if (!value) return;
+    addToDo(value);
+    setValue("");
+  };
   return (
-    <div className="container">
+    <form onSubmit={handelSubmit}>
       <Input
         value={value}
         size="large"
         placeholder="Create a new todo..."
-        onChange={(e) => setValue(e.currentTarget.value)}
+        onChange={(e: React.FormEvent<HTMLInputElement>) =>
+          setValue(e.currentTarget.value)
+        }
       ></Input>
-    </div>
+    </form>
   );
 };
 
