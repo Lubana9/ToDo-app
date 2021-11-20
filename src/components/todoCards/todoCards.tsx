@@ -18,7 +18,7 @@ const ToDoCard: React.FC<CardToDoProps> = ({ addToDo }) => {
     setValue("");
   };
   return (
-    <form onSubmit={handelSubmit}>
+    <form className="container" onSubmit={handelSubmit}>
       <Input
         value={value}
         size="large"
