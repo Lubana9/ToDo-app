@@ -19,12 +19,6 @@ const ToDoPage = () => {
     setTodos(newToDo);
   };
 
-  const handelComplete = (id: number) => {
-    const newToDos = [...todos];
-    newToDos[id].isCompleted = true;
-    setTodos(newToDos);
-  };
-
   const handelREmove = (id: number) => {
     const newToDos = [...todos];
     newToDos.splice(id, 1);
@@ -36,23 +30,13 @@ const ToDoPage = () => {
         <ToDoCard addToDo={handelAdd} />
         {todos.map((todo, id) => {
           return (
-            <ToDo
-              key={id}
-              todo={todo}
-              id={id}
-              completeTodo={handelComplete}
-              removeToDo={handelREmove}
-            ></ToDo>
+            <ToDo key={id} todo={todo} id={id} removeToDo={handelREmove}></ToDo>
           );
         })}
         <div>
           <span className="todo--footer todo__itemLeft">
             {todos.length} items left{" "}
           </span>
-          <span className="	 todo--footer">All </span>
-          <span className=" todo--footer">Active </span>
-          <span className="	 todo--footer">completed </span>
-          <span className="todo--footer">Clear completed </span>
         </div>
       </div>
     </div>
