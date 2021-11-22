@@ -5,3 +5,18 @@
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
 }
+
+:root {
+  --color-gradient: linear-gradient(
+    90deg,
+    rgba(87, 221, 255, 1) 35%,
+    rgba(192, 88, 243, 1) 100%
+  );
+  /*Light*/
+  --color-border-light: #d9d9d9;
+  --color-background-light: #fff;
+
+  /*Dark*/
+  --color-border_backround-dark: #25273c;
+  --color-font-dark: #fafafa;
+}

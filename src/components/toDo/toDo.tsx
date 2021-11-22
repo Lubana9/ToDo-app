@@ -6,7 +6,7 @@ type ToDoProps = {
 };
 const ToDo: React.FC<ToDoProps> = ({ todo, id, removeToDo }) => {
   return (
-    <div className="content">
+    <div className="content content_light ">
       <input type="checkbox" id="todo" name="todo" value="todo" />
       <label htmlFor="todo" data-content={todo.text}>
         {todo.text}
