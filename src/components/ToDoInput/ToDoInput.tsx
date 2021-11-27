@@ -2,13 +2,12 @@
 import { useState } from "react";
 
 import "@styles/style.css";
-import "antd/dist/antd.css";
-import "./style.css";
 
 type CardToDoProps = {
   addToDo: (value: string) => void;
+  theme: string;
 };
-const ToDoInput: React.FC<CardToDoProps> = ({ addToDo }) => {
+const ToDoInput: React.FC<CardToDoProps> = ({ addToDo, theme }) => {
   const [value, setValue] = useState("");
   const handelSubmit = (e: any) => {
     e.preventDefault();
@@ -17,9 +16,9 @@ const ToDoInput: React.FC<CardToDoProps> = ({ addToDo }) => {
     setValue("");
   };
   return (
-    <form className="container" onSubmit={handelSubmit}>
+    <form className="form--container" onSubmit={handelSubmit}>
       <input
-        className="input input_light"
+        className={`input input${theme}`}
         value={value}
         placeholder="Create a new todo..."
         onChange={(e: React.FormEvent<HTMLInputElement>) =>
