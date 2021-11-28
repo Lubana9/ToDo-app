@@ -16,8 +16,8 @@ const ThemeTumble: React.FC<ThemeTumbleProps> = ({ theme, setTheme }) => {
     setTheme(theme === "_light" ? "_dark" : "_light");
   }, [theme, setTheme]);
   return (
-    <header>
-      <h1>TODO</h1>
+    <div className="grid grid--1x2">
+      <h1 className="header">TODO</h1>
       <input
         className="tumbler"
         onClick={handelClick}
@@ -27,7 +27,7 @@ const ThemeTumble: React.FC<ThemeTumbleProps> = ({ theme, setTheme }) => {
         width="30"
         height="30"
       />
-    </header>
+    </div>
   );
 };
 

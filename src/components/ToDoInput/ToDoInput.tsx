@@ -16,7 +16,7 @@ const ToDoInput: React.FC<CardToDoProps> = ({ addToDo, theme }) => {
     setValue("");
   };
   return (
-    <form className="form--container" onSubmit={handelSubmit}>
+    <form className="input--form " onSubmit={handelSubmit}>
       <input
         className={`input input${theme}`}
         value={value}

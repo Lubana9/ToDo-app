@@ -7,7 +7,7 @@ type ToDoProps = {
 };
 const ToDo: React.FC<ToDoProps> = ({ todo, id, removeToDo, theme }) => {
   return (
-    <div className={`content content${theme}`}>
+    <div className={`grid grid--1x3 content content${theme}`}>
       <input type="checkbox" id="todo" name="todo" value="todo" />
       <label htmlFor="todo" data-content={todo.text}>
         {todo.text}

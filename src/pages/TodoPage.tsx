@@ -28,26 +28,25 @@ const ToDoPage: React.FC = () => {
     setTodos(newToDos);
   };
   return (
-    <div className="container">
-      <div className={` background background${theme}`}>
+    <div className={` background background${theme}`}>
+      <div className="app--container">
         <ThemeTumbler theme={theme} setTheme={setTheme} />
-        <div className="todo--container  ">
+        <div className="grid grid--1x1">
           <ToDoInput addToDo={handelAdd} theme={theme} />
-          {todos.map((todo, id) => {
-            return (
-              <ToDo
-                key={id}
-                todo={todo}
-                id={id}
-                theme={theme}
-                removeToDo={handelREmove}
-              ></ToDo>
-            );
-          })}
-
-          <span className={`todo--footer todo--footer${theme}`}>
-            {todos.length} items left{" "}
-          </span>
+        </div>
+        {todos.map((todo, id) => {
+          return (
+            <ToDo
+              key={id}
+              todo={todo}
+              id={id}
+              theme={theme}
+              removeToDo={handelREmove}
+            ></ToDo>
+          );
+        })}
+        <div className={`todo--footer todo--footer${theme}`}>
+          {todos.length} items left{" "}
         </div>
       </div>
     </div>

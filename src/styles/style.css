@@ -20,25 +20,23 @@
   --color-border_backround-dark: #25273c;
   --color-font-dark: #fafafa;
 }
-h1 {
-  position: relative;
-  bottom: 250px;
-  left: 100px;
-  color: var(--color-background-light);
+.app--container {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  justify-items: start;
+  color: #fafafa;
   font-weight: 700;
-  letter-spacing: 10px;
-  font-size: 34px;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+.tumbler {
+  justify-items: end;
 }
 .content {
-  display: grid;
-  grid-template-columns: 50px auto 50px;
-  align-items: center;
-  justify-items: start;
-  width: 100%;
-  text-align: left;
   padding: 20px 20px;
 }
-
 .content_light {
   border-bottom: 1px solid var(--color-border-light);
   background: var(--color-background-light);
@@ -53,10 +51,10 @@ h1 {
 
 .cross_icon {
   opacity: 0;
+  margin-left: 70px;
 }
 .content:hover .cross_icon {
   opacity: 0.8;
-  display: inline-flex;
   transition: 0.3s;
 }
 input[type="checkbox"] {
@@ -111,31 +109,17 @@ label::before {
   text-decoration-color: #777;
   transition: clip-path 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.tumbler {
-  position: relative;
-  bottom: 300px;
-  left: 600px;
-}
-.todo--container {
-  max-width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-}
-
 .todo--footer {
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 0;
   width: 100%;
 }
-
 .todo--footer_ligth {
   background: var(--color-background-light);
+  border: 1px solid var(--color-border-light);
 }
 .todo--footer_dark {
   background: var(--color-border_backround-dark);
@@ -162,20 +146,16 @@ label::before {
   background: url(../images/bg-desktop-dark.jpg), #161722;
   background-repeat: repeat-x;
 }
-.form--container {
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  padding: 0;
-  margin: 0 0 5px 0;
+.input--form {
+  display: flex;
 }
-
 .input {
-  width: 100%;
   cursor: pointer;
   padding: 10px 10px;
   margin-bottom: 20px;
   cursor: pointer;
+  flex-grow: 1;
+  max-width: 100%;
 }
 
 .input:focus {
@@ -190,4 +170,24 @@ label::before {
   background-color: var(--color-border_backround-dark);
   border: 1px solid var(--color-border_backround-dark);
   color: var(--color-font-dark);
+}
+
+.grid {
+  display: grid;
+}
+.grid--1x1 {
+  grid-template-columns: 1fr;
+  justify-content: end;
+}
+.grid--1x2 {
+  grid-template-columns: 10fr 1fr;
+  justify-items: start;
+}
+
+.grid--1x3 {
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+}
+
+@media screen and (max-width: 500px) {
 }
