@@ -1,12 +1,13 @@
-import "./style.css";
+import "@styles/style.css";
 type ToDoProps = {
   todo: any;
   id: number;
   removeToDo: (id: number) => void;
+  theme: string;
 };
-const ToDo: React.FC<ToDoProps> = ({ todo, id, removeToDo }) => {
+const ToDo: React.FC<ToDoProps> = ({ todo, id, removeToDo, theme }) => {
   return (
-    <div className="content">
+    <div className={`grid grid--1x3 content content${theme}`}>
       <input type="checkbox" id="todo" name="todo" value="todo" />
       <label htmlFor="todo" data-content={todo.text}>
         {todo.text}

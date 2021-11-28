@@ -1,15 +1,13 @@
 /* eslint-disable no-console */
 import { useState } from "react";
 
-import { Input } from "antd";
 import "@styles/style.css";
-import "antd/dist/antd.css";
-import "./style.css";
 
 type CardToDoProps = {
   addToDo: (value: string) => void;
+  theme: string;
 };
-const ToDoCard: React.FC<CardToDoProps> = ({ addToDo }) => {
+const ToDoInput: React.FC<CardToDoProps> = ({ addToDo, theme }) => {
   const [value, setValue] = useState("");
   const handelSubmit = (e: any) => {
     e.preventDefault();
@@ -18,17 +16,17 @@ const ToDoCard: React.FC<CardToDoProps> = ({ addToDo }) => {
     setValue("");
   };
   return (
-    <form className="container" onSubmit={handelSubmit}>
-      <Input
+    <form className="input--form " onSubmit={handelSubmit}>
+      <input
+        className={`input input${theme}`}
         value={value}
-        size="large"
         placeholder="Create a new todo..."
         onChange={(e: React.FormEvent<HTMLInputElement>) =>
           setValue(e.currentTarget.value)
         }
-      ></Input>
+      />
     </form>
   );
 };
 
-export default ToDoCard;
+export default ToDoInput;

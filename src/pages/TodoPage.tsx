@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
 import { useState } from "react";
 
+import ThemeTumbler from "@components/ThemeTumbler";
 import ToDo from "@components/toDo";
-import ToDoCard from "@components/todoCards";
+import ToDoInput from "@components/ToDoInput";
 import { IToDo } from "src/interfaces/todoI";
-import "./style.css";
-const ToDoPage = () => {
+import "@styles/style.css";
+
+const ToDoPage: React.FC = () => {
+  const [theme, setTheme] = useState("_light");
   const [todos, setTodos] = useState<IToDo[]>([
     { text: "Jog around the park 3x" },
     { text: "10 minutes meditation" },
@@ -25,18 +28,25 @@ const ToDoPage = () => {
     setTodos(newToDos);
   };
   return (
-    <div className="background">
-      <div className="todo--container">
-        <ToDoCard addToDo={handelAdd} />
+    <div className={` background background${theme}`}>
+      <div className="app--container">
+        <ThemeTumbler theme={theme} setTheme={setTheme} />
+        <div className="grid grid--1x1">
+          <ToDoInput addToDo={handelAdd} theme={theme} />
+        </div>
         {todos.map((todo, id) => {
           return (
-            <ToDo key={id} todo={todo} id={id} removeToDo={handelREmove}></ToDo>
+            <ToDo
+              key={id}
+              todo={todo}
+              id={id}
+              theme={theme}
+              removeToDo={handelREmove}
+            ></ToDo>
           );
         })}
-        <div>
-          <span className="todo--footer todo__itemLeft">
-            {todos.length} items left{" "}
-          </span>
+        <div className={`todo--footer todo--footer${theme}`}>
+          {todos.length} items left{" "}
         </div>
       </div>
     </div>
