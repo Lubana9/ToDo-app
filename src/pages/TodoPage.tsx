@@ -5,6 +5,7 @@ import ThemeTumbler from "@components/ThemeTumbler";
 import ToDo from "@components/toDo";
 import ToDoInput from "@components/ToDoInput";
 import { IToDo } from "src/interfaces/todoI";
+import "bootstrap/dist/css/bootstrap.css";
 import "@styles/style.css";
 
 const ToDoPage: React.FC = () => {
@@ -28,7 +29,7 @@ const ToDoPage: React.FC = () => {
     setTodos(newToDos);
   };
   return (
-    <div className={` background background${theme}`}>
+    <div className={`container-fluid background background${theme}`}>
       <div className="app--container">
         <ThemeTumbler theme={theme} setTheme={setTheme} />
         <div className="grid grid--1x1">

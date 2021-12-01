@@ -1,6 +1,4 @@
-import { url } from "inspector";
-
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
 import moonImg from "../../images/icon-moon.svg";
 import sunImg from "../../images/icon-sun.svg";
