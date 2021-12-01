@@ -22,8 +22,6 @@ const ThemeTumble: React.FC<ThemeTumbleProps> = ({ theme, setTheme }) => {
         type="image"
         src={`${theme === "_light" ? sunImg : moonImg}`}
         alt="Submit"
-        width="30"
-        height="30"
       />
     </div>
   );
