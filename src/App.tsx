@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-import ThemeTumbler from "@components/ThemeTumbler";
+import React from "react";
 
 import "@styles/style.css";
 
