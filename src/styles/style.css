@@ -17,7 +17,8 @@
   --color-background-light: #fff;
 
   /*Dark*/
-  --color-border_backround-dark: #25273c;
+  --color-backround-dark: #25273c;
+  --color-border-dark: #4a4a4e;
   --color-font-dark: #fafafa;
 }
 .app--container {
@@ -33,10 +34,15 @@
   font-size: 25px;
   letter-spacing: 5px;
   margin: 0;
+  z-index: 1;
 }
 .tumbler {
-  width: 37px;
-  height: 37px;
+  width: 25px;
+  height: 25px;
+}
+
+.content--container {
+  box-shadow: 0px -4px 47px -24px rgba(34, 60, 80, 0.6);
 }
 .content {
   padding: 20px 20px;
@@ -47,9 +53,8 @@
 }
 
 .content_dark {
-  border-bottom: 1px solid var(--color-border-light);
-  background: var(--color-border_backround-dark);
-  border: 1px solid var(--color-border_backround-dark);
+  background: var(--color-backround-dark);
+  border-bottom: 1px solid var(--color-border-dark);
   color: var(--color-font-dark);
 }
 
@@ -114,22 +119,7 @@ label::before {
   text-decoration-color: #777;
   transition: clip-path 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.todo--footer {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-  width: 100%;
-}
-.todo--footer_ligth {
-  background: var(--color-background-light);
-  border: 1px solid var(--color-border-light);
-}
-.todo--footer_dark {
-  background: var(--color-border_backround-dark);
-  color: var(--color-font-dark);
-}
+
 .background {
   min-height: 100vh;
 }
@@ -163,11 +153,31 @@ label::before {
 }
 
 .input_dark {
-  background-color: var(--color-border_backround-dark);
-  border: 1px solid var(--color-border_backround-dark);
+  background-color: var(--color-backround-dark);
+  border: 1px solid var(--color-border-dark);
   color: var(--color-font-dark);
 }
+.todo--filter {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  width: 100%;
+}
 
+.filter--btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.filter--btn:hover {
+  opacity: 0.5;
+}
+
+.footer {
+  text-align: center;
+}
 .grid {
   display: grid;
 }

@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { useState } from "react";
 
+import Filter from "@components/Filter";
 import ThemeTumbler from "@components/ThemeTumbler";
 import ToDo from "@components/toDo";
 import ToDoInput from "@components/ToDoInput";
@@ -11,13 +12,12 @@ import "@styles/style.css";
 const ToDoPage: React.FC = () => {
   const [theme, setTheme] = useState("_light");
   const [todos, setTodos] = useState<IToDo[]>([
-    { text: "Jog around the park 3x" },
-    { text: "10 minutes meditation" },
-    { text: "Read for 1 hour" },
-    { text: " Pickup groceries" },
-    { text: "Complete todo App" },
+    { text: "Jog around the park 3x", isCompleted: false },
+    { text: "10 minutes meditation", isCompleted: false },
+    { text: "Read for 1 hour", isCompleted: false },
+    { text: " Pickup groceries", isCompleted: false },
+    { text: "Complete todo App", isCompleted: false },
   ]);
-
   const handelAdd = (text: any) => {
     const newToDo = [...todos, { text }];
     setTodos(newToDo);
@@ -28,6 +28,12 @@ const ToDoPage: React.FC = () => {
     newToDos.splice(id, 1);
     setTodos(newToDos);
   };
+  const handelClear = () => {
+    const newToDos = [...todos];
+    newToDos.length = 0;
+    setTodos(newToDos);
+  };
+
   return (
     <div className={`container-fluid background background${theme}`}>
       <div className="app--container">
@@ -35,19 +41,19 @@ const ToDoPage: React.FC = () => {
         <div className="grid grid--1x1">
           <ToDoInput addToDo={handelAdd} theme={theme} />
         </div>
-        {todos.map((todo, id) => {
-          return (
-            <ToDo
-              key={id}
-              todo={todo}
-              id={id}
-              theme={theme}
-              removeToDo={handelREmove}
-            ></ToDo>
-          );
-        })}
-        <div className={`todo--footer todo--footer${theme}`}>
-          {todos.length} items left{" "}
+        <div className="content--container">
+          {todos.map((todo, id) => {
+            return (
+              <ToDo
+                key={id}
+                todo={todo}
+                id={id}
+                theme={theme}
+                removeToDo={handelREmove}
+              ></ToDo>
+            );
+          })}
+          <Filter theme={theme} item={todos.length} onClear={handelClear} />
         </div>
       </div>
     </div>
